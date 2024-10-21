@@ -13,7 +13,7 @@ import { submitComment } from "../actions"
 import { io } from "socket.io-client"
 import Link from "next/link"
 
-const socket = io("http://localhost:8080")
+const socket = io("http://localhost:8080") // ? Where the web server socket is running
 
 interface ClientPageProps {
   topicName: string
@@ -27,8 +27,7 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
   const [input, setInput] = useState<string>("")
 
   useEffect(() => {
-    socket.emit("join-room", `room:${topicName}`)
-
+    socket.emit("join-room", `room:${topicName}`) // ? Join the room with the topic name
   }, [])
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
 
             return [
               ...rest,
-              { text: before!.text, value: before!.value + newWord.value },
+              { text: before!.text, value: before!.value + newWord.value }, // * newWord.value is always 1 is better than add naively +1 since if the user write 3 times the same word, it will be 3 instead of 1
             ]
           })
         } else if (words.length < 50) {
