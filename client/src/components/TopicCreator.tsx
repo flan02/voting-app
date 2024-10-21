@@ -9,8 +9,8 @@ import { createTopic } from "@/app/actions"
 const TopicCreator = () => {
   const [input, setInput] = useState<string>("")
 
-  const { mutate, error, isPending } = useMutation({
-    mutationFn: createTopic,
+  const { mutate: newTopic, error, isPending } = useMutation({
+    mutationFn: createTopic
   })
 
   return (
@@ -19,12 +19,13 @@ const TopicCreator = () => {
         <Input
           value={input}
           onChange={({ target }) => setInput(target.value)}
-          className="bg-white min-w-64"
+          className="bg-white rounded-lg min-w-64 border border-blue-200 text-muted-foreground"
           placeholder="Enter topic here..."
         />
         <Button
           disabled={isPending}
-          onClick={() => mutate({ topicName: input })}
+          onClick={() => newTopic({ topicName: input })}
+          className="bg-gradient-to-r from-blue-400 to-pink-300 text-slate-200"
         >
           Create
         </Button>

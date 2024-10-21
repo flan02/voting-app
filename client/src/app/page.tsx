@@ -4,17 +4,18 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper"
 import TopicCreator from "@/components/TopicCreator"
 import { redis } from "@/lib/redis"
 import { Star } from "lucide-react"
-import AnimatedBackground from "@/components/AnimatedBackground"
 
-export default function Home() {
-  // const servedRequests = await redis.get("served-requests")
 
-  const servedRequests = 3
+export default async function Home() {
+
+  //const servedRequests = 3
+  const servedRequests = await redis.get("served-requests")
+
 
   const colorStarBorder = "text-blue-400"
   const colorStarFill = "fill-blue-400"
   return (
-    <section className="min-h-screen bg-grid-zinc-50">
+    <section className="min-h-screen bg-grid-rose-100/60">
 
       <MaxWidthWrapper className="relative pb-24 pt-10 sm:pb-32 lg:pt-24 xl:pt-32 lg:pb-52">
         <div className="hidden lg:block absolute inset-0 top-8">
@@ -43,15 +44,15 @@ export default function Home() {
             <div className="mt-12 flex flex-col sm:flex-row items-cemter sm:items-start gap-5">
               <div className="flex flex-col gap-1 justify-between items-center">
                 <div className="flex gap-0.5">
-                  <Star className={`h-4 w-4 ${colorStarBorder} ${colorStarFill}`} />
-                  <Star className={`h-4 w-4 ${colorStarBorder} ${colorStarFill}`} />
-                  <Star className={`h-4 w-4 ${colorStarBorder} ${colorStarFill}`} />
-                  <Star className={`h-4 w-4 ${colorStarBorder} ${colorStarFill}`} />
-                  <Star className={`h-4 w-4 ${colorStarBorder} ${colorStarFill}`} />
+                  <Star className={`size-6 ${colorStarBorder} ${colorStarFill}`} />
+                  <Star className={`size-6 ${colorStarBorder} ${colorStarFill}`} />
+                  <Star className={`size-6 ${colorStarBorder} ${colorStarFill}`} />
+                  <Star className={`size-6 ${colorStarBorder} ${colorStarFill}`} />
+                  <Star className={`size-6 ${colorStarBorder} ${colorStarFill}`} />
                 </div>
 
-                <p>
-                  <span className="font-semibold">
+                <p className="text-muted-foreground">
+                  <span className="font-semibold ">
                     {Math.ceil(Number(servedRequests) / 10) * 10}
 
                   </span>{" "}
