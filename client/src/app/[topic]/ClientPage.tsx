@@ -87,10 +87,10 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
       <MaxWidthWrapper className="flex flex-col items-center gap-6 pt-20">
         <h1 className="text-4xl sm:text-5xl font-bold text-center tracking-tight text-balance">
           What people think about{" "}
-          <span className="text-blue-600">{topicName}</span>:
+          <span className="bg-gradient-to-r from-green-300 to-yellow-300 bg-clip-text text-transparent">{topicName}</span>:
         </h1>
 
-        <p className="text-sm">(updated in real-time)</p>
+        <p className="text-sm">(updated in real-time thanks to websockets)</p>
 
         <div className="aspect-square max-w-xl flex items-center justify-center">
           <Wordcloud
@@ -122,7 +122,7 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
         </div>
 
         <div className="max-w-lg w-full">
-          <Label className="font-semibold tracking-tight text-lg pb-2">
+          <Label className="font-semibold tracking-tight text-lg pb-2 text-muted-foreground">
             Here&apos;s what I think about {topicName}
           </Label>
           <div className="mt-1 flex gap-2 items-center">
@@ -135,6 +135,7 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
             <Button
               disabled={isPending}
               onClick={() => sendComment({ comment: input, topicName })}
+              className="grad-button"
             >
               Share
             </Button>

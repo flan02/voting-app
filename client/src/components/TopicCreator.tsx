@@ -25,7 +25,7 @@ const TopicCreator = () => {
         <Button
           disabled={isPending}
           onClick={() => newTopic({ topicName: input })}
-          className="bg-gradient-to-r from-blue-400 to-pink-300 text-slate-200"
+          className="grad-button"
         >
           Create
         </Button>

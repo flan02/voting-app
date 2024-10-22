@@ -24,7 +24,7 @@ export default async function Home() {
 
         <div className="px-6 lg:px-0 lg:pt-4">
           <div className="relative mx-auto text-center flex flex-col items-center">
-            <h1 className="bg-gradient-to-r from-blue-400 to-pink-300 bg-clip-text text-transparent relative leading-snug w-fit tracking-tight text-balance mt-16 font-bold text-6xl md:text-7xl">
+            <h1 className="text-grad relative leading-snug w-fit tracking-tight text-balance mt-16 font-bold text-6xl md:text-7xl">
               Whariya{" "}
               <span className="whitespace-nowrap">
                 th
